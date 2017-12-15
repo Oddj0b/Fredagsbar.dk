@@ -331,7 +331,8 @@
 				LastUpgradeCheck = 0430;
 				TargetAttributes = {
 					920EBE23147535F200931269 = {
-						DevelopmentTeam = H2H58GY7CF;
+						DevelopmentTeam = T2TBC34KR3;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -480,12 +481,16 @@
 		920EBE43147535F200931269 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = H2H58GY7CF;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = T2TBC34KR3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Campus Festen/Campus Festen-Prefix.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Campus Festen/Campus Festen-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ribeyestudios.fredagsbar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "a619fc0c-9805-41f3-8b78-838ef3c12d2b";
+				PROVISIONING_PROFILE_SPECIFIER = "Fredagsbar-dev";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -493,12 +498,15 @@
 		920EBE44147535F200931269 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = H2H58GY7CF;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Campus Festen/Campus Festen-Prefix.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Campus Festen/Campus Festen-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ribeyestudios.fredagsbar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
