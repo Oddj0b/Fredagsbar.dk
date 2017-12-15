@@ -500,6 +500,9 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = T2TBC34KR3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Campus Festen/Campus Festen-Prefix.pch";
 				HEADER_SEARCH_PATHS = "";
@@ -507,6 +510,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ribeyestudios.fredagsbar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "f4124a89-bdc9-4326-aa3e-ace7c169edca";
+				PROVISIONING_PROFILE_SPECIFIER = "Fredagsbar-prod";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
