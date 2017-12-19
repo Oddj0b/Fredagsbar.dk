@@ -17,3 +17,7 @@ profile
 #OSX
 
 .DS_Store
+
+#Carthage
+
+Carthage
