@@ -6,6 +6,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <AppCenterXCUITestExtensions/AppCenterXCUITestExtensions.h>
 
 @interface fredagsbar_dkUITests : XCTestCase
 
