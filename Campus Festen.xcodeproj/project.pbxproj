@@ -37,6 +37,7 @@
 		927C274814B6561C008971B2 /* CEO.png in Resources */ = {isa = PBXBuildFile; fileRef = 927C274514B6561C008971B2 /* CEO.png */; };
 		927C274914B6561C008971B2 /* PR.png in Resources */ = {isa = PBXBuildFile; fileRef = 927C274614B6561C008971B2 /* PR.png */; };
 		928D469214B9B8C600890290 /* Priser.png in Resources */ = {isa = PBXBuildFile; fileRef = 928D469114B9B8C600890290 /* Priser.png */; };
+		92944191216632010070F794 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92944190216632000070F794 /* Default-568h@2x.png */; };
 		929DFB6C14B28E3900E4FB40 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 929DFB6B14B28E3900E4FB40 /* Contact.m */; };
 		929DFB7114B292A600E4FB40 /* contact.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 929DFB7014B292A600E4FB40 /* contact.jpg */; };
 		929DFB7714B29BE300E4FB40 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929DFB7614B29BE300E4FB40 /* MessageUI.framework */; };
@@ -114,6 +115,7 @@
 		927C274514B6561C008971B2 /* CEO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CEO.png; sourceTree = "<group>"; };
 		927C274614B6561C008971B2 /* PR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PR.png; sourceTree = "<group>"; };
 		928D469114B9B8C600890290 /* Priser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Priser.png; sourceTree = "<group>"; };
+		92944190216632000070F794 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		929DFB6A14B28E3900E4FB40 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
 		929DFB6B14B28E3900E4FB40 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		929DFB7014B292A600E4FB40 /* contact.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = contact.jpg; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 		920EBE2F147535F200931269 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				92944190216632000070F794 /* Default-568h@2x.png */,
 				69F49A4C14C378230033EFBD /* 5.png */,
 				69F49A4D14C378240033EFBD /* 3.png */,
 				69F49A4E14C378240033EFBD /* 4.png */,
@@ -385,7 +388,7 @@
 				LastUpgradeCheck = 0940;
 				TargetAttributes = {
 					920EBE23147535F200931269 = {
-						DevelopmentTeam = 6MYY8Z8F7E;
+						DevelopmentTeam = T2TBC34KR3;
 						ProvisioningStyle = Automatic;
 					};
 					92ADF0551FE9647C00A0BCB5 = {
@@ -424,6 +427,7 @@
 				92CCDDCF148799410013E512 /* Barinfo.csv in Resources */,
 				9211199D149E60C600EE75AD /* events.png in Resources */,
 				9237ECF4149EA889004119B7 /* maps.jpg in Resources */,
+				92944191216632010070F794 /* Default-568h@2x.png in Resources */,
 				929DFB7114B292A600E4FB40 /* contact.jpg in Resources */,
 				927C274714B6561C008971B2 /* Accountant.png in Resources */,
 				927C274814B6561C008971B2 /* CEO.png in Resources */,
@@ -615,13 +619,13 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6MYY8Z8F7E;
+				DEVELOPMENT_TEAM = T2TBC34KR3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Campus Festen/Campus Festen-Prefix.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Campus Festen/Campus Festen-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ribeyestudios.campusfest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ribeyestudios.fredagsbar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -634,13 +638,13 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6MYY8Z8F7E;
+				DEVELOPMENT_TEAM = T2TBC34KR3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Campus Festen/Campus Festen-Prefix.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Campus Festen/Campus Festen-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ribeyestudios.campusfest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ribeyestudios.fredagsbar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
