@@ -12,7 +12,6 @@ jobs:
       - uses: actions/github-script@v4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          run: echo 'We found an issue'
           script: |
             github.issues.createComment({
               issue_number: context.issue_number,
