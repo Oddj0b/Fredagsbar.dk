@@ -9,7 +9,7 @@ jobs:
     # if: ${{ github.event.issues.labels == 'NEW PROGRAM REQUEST' }}
     if: github.event.label.name == 'bug'
     steps:
-      - uses: dessant/labal-actions@v2
+      - uses: dessant/label-actions@v2
       - uses: actions/github-script@v4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
