@@ -8,9 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     # if: ${{ github.event.issues.labels == 'NEW PROGRAM REQUEST' }}
     # if: github.event.label.name == 'bug'
-    steps:
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+    with:
+      github-token: ${{ secrets.GITHUB_TOKEN }}
   checkout:
     - name: Checkout
       uses: actions/checkout@v2
@@ -22,3 +21,10 @@ jobs:
       with:
         ruby-version: 2.7
     - run: ruby ../createProgramFolder/programFolder.rb $GITHUB_WORKSPACE/guides-and-templates format({0}-{1}, github.event.issues.title github.event.issues.id)
+  createPullRequest:
+    - name: Create pull request for the new program
+      uses: peter-evans/create-pull-request@v3
+      with:
+        title: Templates added by Oddb0t
+        branch: format({0}-{1}, github.event.issues.title github.event.issues.id)
+        commit-message: Templates added to the new program by Oddb0t
