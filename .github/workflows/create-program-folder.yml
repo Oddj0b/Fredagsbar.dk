@@ -7,16 +7,18 @@ jobs:
   detectlabel:
     runs-on: ubuntu-latest
     # if: ${{ github.event.issues.labels == 'NEW PROGRAM REQUEST' }}
-    if: github.event.label.name == 'bug'
+    # if: github.event.label.name == 'bug'
     steps:
-      - uses: actions/github-script@v4
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          run: echo 'We found an issue'
-          script: |
-            github.issues.createComment({
-              issue_number: context.issue_number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '✅ Folder created for issue in programs/'
-              })
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+  checkout:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        token: ${{secrets.GITHUB_TOKEN }}
+  createBranch:
+    - name: Setup Ruby, JRuby and TruffleRuby
+      uses: ruby/setup-ruby@v1.70.1
+      with:
+        ruby-version: 2.7
+    - run: ruby ../createProgramFolder/programFolder.rb $GITHUB_WORKSPACE/guides-and-templates format({0}-{1}, github.event.issues.title github.event.issues.id)
