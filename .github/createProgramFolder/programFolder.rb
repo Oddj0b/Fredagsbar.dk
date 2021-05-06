@@ -1,25 +1,25 @@
 #!/usr/bin/ruby
-$folderPath = ENV['folderPath']
+
+require 'fileutils'
 
 def checkTemplateFolder(folderPath)
-  File.directory?(folderPath)
+  raise "No Guides and Template folder" unless File.directory?(folderPath)
 end
 
-def createProgramFolder(programID)
-  unless checkTemplateFolder($folderPath)
-  Dir.mkdir(programID.toString)
-  rescue SystemCallError => e
-    print_exception(e, true)
-  rescue => e
-    print_exception(e, false)
+def createProgramFolder(programFolder,programID)
+  if Dir.exists?("#{programFolder}/#{programID}")
+    puts "Program directory already exists"
+  else
+    Dir.mkdir("#{programFolder}/#{programID}")
   end
 end
-
-def createGitBranch(folderPath, programID)
+def createGitBranch(templateFolder, programID, programFolder)
+  raise "Expected three arguments only got #{ARGV.count}" unless ARGV.count == 3
   `git checkout -b #{programID}`
-  createProgramFolder(folderPath)
-  addTemplatesToFolder()
-  commitAndPush(programID)
+  checkTemplateFolder(templateFolder)
+  createProgramFolder(programFolder, programID)
+  addTemplatesToFolder(templateFolder, programID, programFolder)
+  #commitAndPush(programID)
 end
 
 def commitAndPush(programID)
@@ -28,9 +28,13 @@ def commitAndPush(programID)
   `git push -u origin #{programID}`
 end
 
-def addTemplatesToFolder()
-  templateFolder = Dir("guides-and-templates/template-*")
-  FileUtils.cp(templateFolder, programFolder)
+def addTemplatesToFolder(templateFolder, programID, programFolder)
+  Dir["#{templateFolder}/template-*"].each do |file|
+    if File.exists?("#{programFolder}/#{programID}/#{File.basename(file)}")
+      puts "File already in folder"
+    else
+      FileUtils.cp(file, "#{programFolder}/#{programID}")
+    end
+  end
 end
-
-createGitBranch(ARGV[0], ARGV[1])
+createGitBranch(ARGV[0], ARGV[1], ARGV[2])
