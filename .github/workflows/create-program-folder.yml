@@ -8,9 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     # if: ${{ github.event.issues.labels == 'NEW PROGRAM REQUEST' }}
     # if: github.event.label.name == 'bug'
-    steps:
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+    with:
+      github-token: ${{ secrets.GITHUB_TOKEN }}
   checkout:
     - name: Checkout
       uses: actions/checkout@v2
