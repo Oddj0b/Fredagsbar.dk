@@ -7,7 +7,7 @@ jobs:
   detectlabel:
     runs-on: ubuntu-latest
     # if: ${{ github.event.issues.labels == 'NEW PROGRAM REQUEST' }}
-    # if: github.event.label.name == 'bug'
+    if: github.event.label.name == 'bug'
     with:
       github-token: ${{ secrets.GITHUB_TOKEN }}
   checkout:
