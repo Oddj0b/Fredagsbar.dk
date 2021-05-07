@@ -26,5 +26,5 @@ jobs:
       - uses: peter-evans/create-pull-request@v3
         with:
           title: Templates added by Oddb0t
-          branch: ${{ $PROGRAMID }}
+          branch: $PROGRAMID
           commit-message: Templates added to the new program by Oddb0t checkout
