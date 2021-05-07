@@ -23,8 +23,8 @@ def createGitBranch(templateFolder, programID, programFolder)
   `export PROGRAMID="#{prunedProgramID}"`
   `git checkout -b #{programID}`
   checkTemplateFolder(templateFolder)
-  checkProgramFolder(programFolder)
   createProgramFolder(programFolder, programID)
+  checkProgramFolder(programFolder)
   addTemplatesToFolder(templateFolder, programID, programFolder)
   commitAndPush(programID, programFolder)
 end
