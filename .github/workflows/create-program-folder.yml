@@ -16,7 +16,7 @@ jobs:
         with:
           ruby-version: 2.7
       - run: |
-          echo "Program title: ${{ github.event.issue.title }}"
+          echo "Program title: ${{ github.event.issue.title }}-${{ github.event.issue.number }}"
           echo "Issue ID: ${{ github.event.issue.number }}"
           cd "$GITHUB_WORKSPACE/.github/createProgramFolder"
           ruby programFolder.rb $GITHUB_WORKSPACE/guides-and-templates "${{ github.event.issue.title }}-${{ github.event.issue.number }}" $GITHUB_WORKSPACE/programs
