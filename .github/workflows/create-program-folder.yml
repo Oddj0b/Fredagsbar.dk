@@ -16,10 +16,8 @@ jobs:
         with:
           ruby-version: 2.7
       - run: |
-          ruby ../createProgramFolder/programFolder.rb 
-          $GITHUB_WORKSPACE/guides-and-templates
-          ${{ github.event.issues.title }}-${{ github.event.issues.id }}
-          $GITHUB_WORKSPACE/programs
+          cd "$GITHUB_WORKSPACE/.github/createProgramFolder"
+          ruby createProgramFolder/programFolder.rb $GITHUB_WORKSPACE/guides-and-templates ${{ github.event.issues.title }}-${{ github.event.issues.id }} $GITHUB_WORKSPACE/programs
       - uses: peter-evans/create-pull-request@v3
         with:
           title: Templates added by Oddb0t
