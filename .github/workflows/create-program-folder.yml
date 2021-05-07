@@ -19,10 +19,10 @@ jobs:
           echo "Issue title: ${{ github.event.issue.title }}"
           echo "Issue ID: ${{ github.event.issue.number }}"
           cd "$GITHUB_WORKSPACE/.github/createProgramFolder"
-          ruby programFolder.rb $GITHUB_WORKSPACE/guides-and-templates "${{ github.event.issue.title }}-${{ github.event.issue.id }}" $GITHUB_WORKSPACE/programs
+          ruby programFolder.rb $GITHUB_WORKSPACE/guides-and-templates "${{ github.event.issue.title }}-${{ github.event.issue.number }}" $GITHUB_WORKSPACE/programs
           gh --version
       - uses: peter-evans/create-pull-request@v3
         with:
           title: Templates added by Oddb0t
-          branch: testing-3 # ${{ github.event.issues.title }}-${{ github.event.issues.id }}
+          branch: ${{ github.event.issue.title }}-${{ github.event.issue.number }}
           commit-message: Templates added to the new program by Oddb0t checkout
