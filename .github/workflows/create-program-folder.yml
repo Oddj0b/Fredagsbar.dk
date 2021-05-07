@@ -16,8 +16,7 @@ jobs:
         with:
           ruby-version: 2.7
       - run: |
-          export PROGRAM_NAME= ${{ github.event.issue.title }}
-          echo $PROGRAM_NAME
+          echo "Program title: ${{ github.event.issue.title }}"
           echo "Issue ID: ${{ github.event.issue.number }}"
           export PROGRAM_NAME="${${{ github.event.issue.title }}-${{ github.event.issue.number }}// /_}"
           echo $PROGRAM_NAME
