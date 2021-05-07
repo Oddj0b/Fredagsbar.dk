@@ -19,6 +19,7 @@ jobs:
           echo "Issue title: ${{ github.event.issue.title }}"
           echo "Issue ID: ${{ github.event.issue.number }}"
           export PROGRAM_NAME="${${{ github.event.issue.title }}-${{ github.event.issue.number }}// /_}"
+          echo $PROGRAM_NAME
           cd "$GITHUB_WORKSPACE/.github/createProgramFolder"
           ruby programFolder.rb $GITHUB_WORKSPACE/guides-and-templates "${{ github.event.issue.title }}-${{ github.event.issue.number }}" $GITHUB_WORKSPACE/programs
           gh --version
