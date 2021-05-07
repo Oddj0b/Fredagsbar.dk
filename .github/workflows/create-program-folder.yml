@@ -22,8 +22,8 @@ jobs:
           ruby programFolder.rb $GITHUB_WORKSPACE/guides-and-templates "${{ github.event.issue.title }}-${{ github.event.issue.number }}" $GITHUB_WORKSPACE/programs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        - uses: peter-evans/create-pull-request@v3
-            with:
-              title: Templates added by Oddb0t
-              branch: ${{ $PROGRAMID }}
-              commit-message: Templates added to the new program by Oddb0t checkout
+      - uses: peter-evans/create-pull-request@v3
+        with:
+          title: Templates added by Oddb0t
+          branch: ${{ env.PROGRAMID }}
+          commit-message: Templates added to the new program by Oddb0t checkout
