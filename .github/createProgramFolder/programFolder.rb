@@ -6,6 +6,10 @@ def checkTemplateFolder(folderPath)
   raise "No Guides and Template folder" unless File.directory?(folderPath)
 end
 
+def checkProgramFolder(programFolder)
+  raise "No program folder" unless File.directory?(programFolder)
+end
+
 def createProgramFolder(programFolder,programID)
   if Dir.exists?("#{programFolder}/#{programID}")
     puts "Program directory already exists"
@@ -19,13 +23,14 @@ def createGitBranch(templateFolder, programID, programFolder)
   `export PROGRAMID="#{prunedProgramID}"`
   `git checkout -b #{programID}`
   checkTemplateFolder(templateFolder)
+  checkProgramFolder(programFolder)
   createProgramFolder(programFolder, programID)
   addTemplatesToFolder(templateFolder, programID, programFolder)
-  commitAndPush(programID)
+  commitAndPush(programID, programFolder)
 end
 
-def commitAndPush(programID)
-  `git add programs/#{programID}`
+def commitAndPush(programID, programFolder)
+  `git add #{programFolder}/#{programID}`
   `git commit -m "Automatically adding template files"`
   `git push -u origin #{programID}`
 end
