@@ -16,7 +16,7 @@ jobs:
         with:
           ruby-version: 2.7
       - run: |
-          export PROGRAM_NAME=tr -s " " "_" <<<${{ github.event.issue.title }}
+          export PROGRAM_NAME=tr -s " " "_" <<< "${{ github.event.issue.title }}"
           echo $PROGRAM_NAME
           echo "Issue ID: ${{ github.event.issue.number }}"
           export PROGRAM_NAME="${${{ github.event.issue.title }}-${{ github.event.issue.number }}// /_}"
