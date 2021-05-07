@@ -15,7 +15,7 @@ def createProgramFolder(programFolder,programID)
 end
 def createGitBranch(templateFolder, programID, programFolder)
   raise "Expected three arguments only got #{ARGV.count}" unless ARGV.count == 3
-  prunedProgramID = programID.gsub!(/[^0-9A-Za-a]/, "_")
+  prunedProgramID = programID.gsub(/[^0-9A-Za-a]/, "_")
   `export PROGRAMID="#{prunedProgramID}"`
   `git checkout -b #{programID}`
   checkTemplateFolder(templateFolder)
