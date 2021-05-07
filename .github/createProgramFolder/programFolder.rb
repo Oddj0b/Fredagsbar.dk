@@ -21,7 +21,7 @@ def createGitBranch(templateFolder, programID, programFolder)
   checkTemplateFolder(templateFolder)
   createProgramFolder(programFolder, programID)
   addTemplatesToFolder(templateFolder, programID, programFolder)
-  #commitAndPush(programID)
+  commitAndPush(programID)
 end
 
 def commitAndPush(programID)
