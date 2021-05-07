@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 require 'fileutils'
 
-$programID = programID.gsub(/[^0-9A-Za-a]/, "_")
+$programID = ARGV[1].gsub(/[^0-9A-Za-a]/, "_")
 
 def checkTemplateFolder(folderPath)
   raise "No Guides and Template folder" unless File.directory?(folderPath)
