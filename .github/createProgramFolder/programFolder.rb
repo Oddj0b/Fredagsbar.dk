@@ -10,7 +10,7 @@ def createProgramFolder(programFolder,programID)
   if Dir.exists?("#{programFolder}/#{programID}")
     puts "Program directory already exists"
   else
-    Dir.mkdir("#{programFolder}/#{programID}")
+    FileUtils.mkdir_p("#{programFolder}/#{programID}")
   end
 end
 def createGitBranch(templateFolder, programID, programFolder)
