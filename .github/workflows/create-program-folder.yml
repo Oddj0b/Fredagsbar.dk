@@ -21,26 +21,5 @@ jobs:
       - uses: peter-evans/create-pull-request@v3
         with:
           title: Templates added by Oddb0t
-          branch: ${{ github.event.issues.title }}-${{ github.event.issues.id }}
+          branch: testing-1 # ${{ github.event.issues.title }}-${{ github.event.issues.id }}
           commit-message: Templates added to the new program by Oddb0t checkout
-          # with:
-          #   github-token: ${{ secrets.GITHUB_TOKEN }}
-          #   with:
-          #     title: Templates added by Oddb0t
-          #     branch: format({0}-{1}, github.event.issues.title github.event.issues.id)
-          #     commit-message: Templates added to the new program by Oddb0t checkout:
-          #   - name: Checkout
-          #     with:
-          #       token: ${{secrets.GITHUB_TOKEN }}
-        #  createBranch:
-        #    - name: Setup Ruby, JRuby and TruffleRuby
-        #      with:
-        #        ruby-version: 2.7
-        #    - run: ruby ../createProgramFolder/programFolder.rb $GITHUB_WORKSPACE/guides-and-templates format({0}-{1}, github.event.issues.title github.event.issues.id)
-        # createPullRequest:
-        #   - name: Create pull request for the new program
-        #     uses: peter-evans/create-pull-request@v3
-        #     with:
-        #       title: Templates added by Oddb0t
-        #       branch: format({0}-{1}, github.event.issues.title github.event.issues.id)
-        #       commit-message: Templates added to the new program by Oddb0t
