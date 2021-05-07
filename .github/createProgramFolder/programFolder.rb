@@ -1,6 +1,7 @@
 #!/usr/bin/ruby
-
 require 'fileutils'
+
+$programID = programID.gsub(/[^0-9A-Za-a]/, "_")
 
 def checkTemplateFolder(folderPath)
   raise "No Guides and Template folder" unless File.directory?(folderPath)
@@ -19,14 +20,13 @@ def createProgramFolder(programFolder,programID)
 end
 def createGitBranch(templateFolder, programID, programFolder)
   raise "Expected three arguments only got #{ARGV.count}" unless ARGV.count == 3
-  prunedProgramID = programID.gsub(/[^0-9A-Za-a]/, "_")
-  `export PROGRAMID="#{prunedProgramID}"`
-  `git checkout -b #{programID}`
+  `export PROGRAMID="#{$programID}"`
+  `git checkout -b #{$programID}`
   checkTemplateFolder(templateFolder)
-  createProgramFolder(programFolder, programID)
+  createProgramFolder(programFolder, $programID)
   checkProgramFolder(programFolder)
-  addTemplatesToFolder(templateFolder, programID, programFolder)
-  commitAndPush(programID, programFolder)
+  addTemplatesToFolder(templateFolder, $programID, programFolder)
+  commitAndPush($programID, programFolder)
 end
 
 def commitAndPush(programID, programFolder)
