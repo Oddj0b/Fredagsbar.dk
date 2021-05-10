@@ -21,7 +21,7 @@ end
 def createGitBranch(templateFolder, programID, programFolder)
   raise "Expected three arguments only got #{ARGV.count}" unless ARGV.count == 3
   `export PROGRAMID="#{$programID}"`
-  `git checkout -b #{$programID}`
+  #`git checkout -b #{$programID}`
   checkTemplateFolder(templateFolder)
   createProgramFolder(programFolder, $programID)
   checkProgramFolder(programFolder)
