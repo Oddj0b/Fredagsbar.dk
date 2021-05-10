@@ -7,31 +7,29 @@ jobs:
   detectlabel:
     runs-on: ubuntu-latest
     # if: ${{ github.event.issues.labels == 'NEW PROGRAM REQUEST' }}
-    if: github.event.label.name == 'bug'
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: ruby/setup-ruby@v1.70.1
-        with:
-          ruby-version: 2.7
-      - run: |
-          #echo "Program title: ${{ github.event.issue.title }}-${{ github.event.issue.number }}"
-          #echo "Issue ID: ${{ github.event.issue.number }}"
-          cd "$GITHUB_WORKSPACE/.github/createProgramFolder"
-          ruby -r programFolder.rb -e createGitBranch $GITHUB_WORKSPACE/guides-and-templates "${{ github.event.issue.title }}-${{ github.event.issue.number }}" $GITHUB_WORKSPACE/programs
-          echo "::set-output name:formattedID::$(ruby programFolder.rb -e setProgramID ${{ github.event.issue.title }}-${{ github.event.issue.number}}" 
-          #  source ~/.my-variables.sh
-          #  echo " ${{ env.PROGRAMID }}"
-        output:
-          programID:
-            description: 'Gets the formatted programID, which works as a branch name'
-            value: ${{ steps.programID.outputs.formattedID }}
-        id: ruby_script
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: peter-evans/create-pull-request@v3
-        with:
-          title: Templates added by Oddb0t
-          branch: ${{ steps.ruby_script.outputs.programID }}
-          commit-message: Templates added to the new program by Oddb0t checkout
+  # if: github.event.label.name == 'bug'
+  steps:
+    - uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    - uses: ruby/setup-ruby@v1.70.1
+      id: ruby_script
+      with:
+        ruby-version: 2.7
+      output:
+        programID:
+          description: 'Gets the formatted programID, which works as a branch name'
+          value: ${{ steps.programID.outputs.formattedID }}
+    - run: |
+        # echo "Program title: ${{ github.event.issue.title }}-${{ github.event.issue.number }}"
+        # echo "Issue ID: ${{ github.event.issue.number }}"
+        cd "$GITHUB_WORKSPACE/.github/createProgramFolder"
+        ruby -r programFolder.rb -e createGitBranch $GITHUB_WORKSPACE/guides-and-templates "${{ github.event.issue.title }}-${{ github.event.issue.number }}" $GITHUB_WORKSPACE/programs
+        echo "::set-output name:formattedID::$(ruby programFolder.rb -e setProgramID ${{ github.event.issue.title }}-${{ github.event.issue.number}}"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - uses: peter-evans/create-pull-request@v3
+      with:
+        title: Templates added by Oddb0t
+        branch: ${{ steps.ruby_script.outputs.programID }}
+        commit-message: Templates added to the new program by Oddb0t checkout
