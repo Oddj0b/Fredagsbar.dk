@@ -1,7 +1,11 @@
 #!/usr/bin/ruby
 require 'fileutils'
 
-$programID = ARGV[1].gsub(/[^0-9A-Za-z]/, "_")
+$programID = ""
+
+def setProgramID(programID)
+  $programID = programID.gsub(/[^0-9A-Za-z]/, "_")
+end
 
 def checkTemplateFolder(folderPath)
   raise "No Guides and Template folder" unless File.directory?(folderPath)
@@ -22,6 +26,7 @@ def createGitBranch(templateFolder, programID, programFolder)
   raise "Expected three arguments only got #{ARGV.count}" unless ARGV.count == 3
   #`export PROGRAM=#{$programID} > ~/.my-variables.sh"`
   #`git checkout -b #{$programID}`
+  setProgramID(programID)
   checkTemplateFolder(templateFolder)
   createProgramFolder(programFolder, $programID)
   checkProgramFolder(programFolder)
@@ -45,4 +50,4 @@ def addTemplatesToFolder(templateFolder, programID, programFolder)
     end
   end
 end
-createGitBranch(ARGV[0], ARGV[1], ARGV[2])
+#createGitBranch(ARGV[0], ARGV[1], ARGV[2])
