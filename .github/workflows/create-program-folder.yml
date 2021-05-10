@@ -20,7 +20,7 @@ jobs:
           echo "Issue ID: ${{ github.event.issue.number }}"
           cd "$GITHUB_WORKSPACE/.github/createProgramFolder"
           ruby programFolder.rb $GITHUB_WORKSPACE/guides-and-templates "${{ github.event.issue.title }}-${{ github.event.issue.number }}" $GITHUB_WORKSPACE/programs
-          source my-variables.sh
+          source ~/.my-variables.sh
           echo " ${{ env.PROGRAMID }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
