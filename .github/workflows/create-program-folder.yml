@@ -15,17 +15,18 @@ jobs:
       - uses: ruby/setup-ruby@v1.70.1
         with:
           ruby-version: 2.7
-      - run: |
+      - name: run ruby script
+        id: ruby_script
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
           echo "Program title: ${{ github.event.issue.title }}-${{ github.event.issue.number }}"
           echo "Issue ID: ${{ github.event.issue.number }}"
           cd "$GITHUB_WORKSPACE/.github/createProgramFolder"
           ruby programFolder.rb -e createGitBranch $GITHUB_WORKSPACE/guides-and-templates "${{ github.event.issue.title }}-${{ github.event.issue.number }}" $GITHUB_WORKSPACE/programs
           echo "::set-output name=FORMATTEDID::$(ruby programFolder.rb -e setProgramID ${{ github.event.issue.title }}-${{ github.event.issue.number}})"
           echo "Ruby Scripts, FORMATTEDID: ${{ steps.ruby_script.outputs.FORMATTEDID }}"
-          echo "All steps, all outpus: ${{ steps.*.outputs.* }}"
-        id: ruby_script
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          echo "All steps, all outpus: ${{ steps.*.outputs.* }}"        
       - uses: peter-evans/create-pull-request@v3
         with:
           title: Templates added by Oddb0t
