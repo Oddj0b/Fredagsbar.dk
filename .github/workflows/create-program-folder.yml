@@ -22,7 +22,7 @@ jobs:
           cd "$GITHUB_WORKSPACE/.github/createProgramFolder"
           ruby programFolder.rb -e createGitBranch $GITHUB_WORKSPACE/guides-and-templates "${{ github.event.issue.title }}-${{ github.event.issue.number }}" $GITHUB_WORKSPACE/programs
           echo "::set-output name=formattedID::$(ruby programFolder.rb -e setProgramID ${{ github.event.issue.title }}-${{ github.event.issue.number}})"
-          echo "${{ steps.ruby_script.outputs.* }}
+          echo "${{ steps.ruby_script.outputs.* }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: peter-evans/create-pull-request@v3
