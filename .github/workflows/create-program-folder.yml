@@ -22,7 +22,7 @@ jobs:
           ruby programFolder.rb -e createGitBranch $GITHUB_WORKSPACE/guides-and-templates "${{ github.event.issue.title }}-${{ github.event.issue.number }}" $GITHUB_WORKSPACE/programs
           echo "::set-output name=FORMATTEDID::$(ruby programFolder.rb -e setProgramID ${{ github.event.issue.title }}-${{ github.event.issue.number}})"
           echo "Ruby Scripts, FORMATTEDID: ${{ steps.ruby_script.outputs.FORMATTEDID }}"
-          echo "All steps, all outpus: ${{ steps.*.outputs.* }}
+          echo "All steps, all outpus: ${{ steps.*.outputs.* }}"
         id: ruby_script
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

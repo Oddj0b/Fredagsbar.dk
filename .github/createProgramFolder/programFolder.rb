@@ -5,6 +5,7 @@ $programID = ""
 
 def setProgramID(programID)
   $programID = programID.gsub(/[^0-9A-Za-z]/, "_")
+  return $programID
 end
 
 def checkTemplateFolder(folderPath)
