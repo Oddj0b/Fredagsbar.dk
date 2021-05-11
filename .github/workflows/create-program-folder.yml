@@ -20,7 +20,7 @@ jobs:
           echo "Program title: ${{ github.event.issue.title }}-${{ github.event.issue.number }}"
           echo "Issue ID: ${{ github.event.issue.number }}"
           cd "$GITHUB_WORKSPACE/.github/createProgramFolder"
-          ruby programFolder.rb -e 'createGitBranch $GITHUB_WORKSPACE/guides-and-templates "${{ github.event.issue.title }}-${{ github.event.issue.number }}" $GITHUB_WORKSPACE/programs'
+          ruby programFolder.rb -e createGitBranch $GITHUB_WORKSPACE/guides-and-templates "${{ github.event.issue.title }}-${{ github.event.issue.number }}" $GITHUB_WORKSPACE/programs
           echo "::set-output name:formattedID::$(ruby programFolder.rb -e setProgramID ${{ github.event.issue.title }}-${{ github.event.issue.number}}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
