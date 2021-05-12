@@ -27,7 +27,6 @@ jobs:
           echo -n "::set-output name=FORMATTEDID::"
           echo ${{ github.event.issue.title }}-${{ github.event.issue.number}} | sed -e 's/[^0-9A-Za-z]/_/g'
           echo "Ruby Scripts, FORMATTEDID: ${{ steps.ruby_script.outputs.FORMATTEDID }}"
-          echo "All steps, all outpus: ${{ steps.*.outputs.* }}"        
       - uses: peter-evans/create-pull-request@v3
         with:
           title: Templates added by Oddb0t
