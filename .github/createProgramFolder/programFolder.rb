@@ -31,15 +31,15 @@ def createGitBranch(templateFolder, programID, programFolder)
   # `git checkout -b #{$programID}`
   # setProgramID(programID)
   checkTemplateFolder(templateFolder)
-  createProgramFolder(programFolder, $programID)
+  createProgramFolder(programFolder, programID)
   checkProgramFolder(programFolder)
-  addTemplatesToFolder(templateFolder, $programID, programFolder)
+  addTemplatesToFolder(templateFolder, programID, programFolder)
   # commitAndPush($programID, programFolder)
   # puts $programID.to_s
 end
 
-def commitAndPush(_programID, programFolder)
-  `git add #{programFolder}/#{$programID}`
+def commitAndPush(programID, programFolder)
+  `git add #{programFolder}/#{programID}`
   `git commit -m "Automatically adding template files"`
   `git push -u origin #{$programID}`
 end
