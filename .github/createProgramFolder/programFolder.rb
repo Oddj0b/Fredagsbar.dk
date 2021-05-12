@@ -1,12 +1,12 @@
 #!/usr/bin/ruby
 require 'fileutils'
 
-$programID = ''
+# $programID = ''
 
-def setProgramID(programID)
-  $programID = programID.gsub(/[^0-9A-Za-z]/, '_')
-  $programID
-end
+# def setProgramID(programID)
+#   $programID = programID.gsub(/[^0-9A-Za-z]/, '_')
+#   $programID
+# end
 
 def checkTemplateFolder(folderPath)
   raise 'No Guides and Template folder' unless File.directory?(folderPath)
@@ -29,13 +29,13 @@ def createGitBranch(templateFolder, programID, programFolder)
 
   # `export PROGRAM=#{$programID} > ~/.my-variables.sh"`
   # `git checkout -b #{$programID}`
-  setProgramID(programID)
+  # setProgramID(programID)
   checkTemplateFolder(templateFolder)
   createProgramFolder(programFolder, $programID)
   checkProgramFolder(programFolder)
   addTemplatesToFolder(templateFolder, $programID, programFolder)
   # commitAndPush($programID, programFolder)
-  puts $programID.to_s
+  # puts $programID.to_s
 end
 
 def commitAndPush(_programID, programFolder)

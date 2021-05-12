@@ -4,7 +4,7 @@ on:
   issues:
     types: labeled
 jobs:
-  detectlabel:
+  createProgramFolder:
     runs-on: ubuntu-latest
     # if: ${{ github.event.issues.labels == 'NEW PROGRAM REQUEST' }}
     if: github.event.label.name == 'bug'
@@ -20,13 +20,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "Program title: ${{ github.event.issue.title }}-${{ github.event.issue.number }}"
-          echo "Issue ID: ${{ github.event.issue.number }}"
-          cd "$GITHUB_WORKSPACE/.github/createProgramFolder"
-          ruby programFolder.rb $GITHUB_WORKSPACE/guides-and-templates "${{ github.event.issue.title }}-${{ github.event.issue.number }}" $GITHUB_WORKSPACE/programs
           echo -n "::set-output name=FORMATTEDID::"
           echo ${{ github.event.issue.title }}-${{ github.event.issue.number}} | sed -e 's/[^0-9A-Za-z]/_/g'
-          echo "Ruby Scripts, FORMATTEDID: ${{ steps.ruby_script.outputs.FORMATTEDID }}"
+          cd "$GITHUB_WORKSPACE/.github/createProgramFolder"
+          ruby programFolder.rb $GITHUB_WORKSPACE/guides-and-templates "${{ steps.ruby_script.outputs.FORMATTEDID }}" $GITHUB_WORKSPACE/programs # echo "Ruby Scripts, FORMATTEDID: ${{ steps.ruby_script.outputs.FORMATTEDID }}"
       - uses: peter-evans/create-pull-request@v3
         with:
           title: Templates added by Oddb0t
