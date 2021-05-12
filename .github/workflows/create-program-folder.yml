@@ -23,7 +23,7 @@ jobs:
           echo "Program title: ${{ github.event.issue.title }}-${{ github.event.issue.number }}"
           echo "Issue ID: ${{ github.event.issue.number }}"
           cd "$GITHUB_WORKSPACE/.github/createProgramFolder"
-          ruby programFolder.rb -e createGitBranch $GITHUB_WORKSPACE/guides-and-templates "${{ github.event.issue.title }}-${{ github.event.issue.number }}" $GITHUB_WORKSPACE/programs
+          ruby programFolder.rb $GITHUB_WORKSPACE/guides-and-templates "${{ github.event.issue.title }}-${{ github.event.issue.number }}" $GITHUB_WORKSPACE/programs
           echo -n "::set-output name=FORMATTEDID::"
           echo ${{ github.event.issue.title }}-${{ github.event.issue.number}} | sed -e 's/[^0-9A-Za-z]/_/g'
           echo "Ruby Scripts, FORMATTEDID: ${{ steps.ruby_script.outputs.FORMATTEDID }}"
