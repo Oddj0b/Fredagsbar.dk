@@ -48,6 +48,7 @@ def addTemplatesToFolder(templateFolder, programID, programFolder)
       puts "File already in folder"
     else
       FileUtils.cp(file, "#{programFolder}/#{programID}")
+      puts "copied file: #{programFolder}/#{programID}: #{$?}"
     end
   end
 end
