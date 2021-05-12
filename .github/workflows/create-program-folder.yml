@@ -1,8 +1,5 @@
 ---
 name: Add folder for new program  request
-branding:
-  icon: 'paperclip'
-  color: 'green'
 on:
   issues:
     types: labeled
